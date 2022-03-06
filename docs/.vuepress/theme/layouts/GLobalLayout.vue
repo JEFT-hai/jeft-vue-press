@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-18 17:52:37
- * @LastEditTime: 2022-02-21 15:38:50
+ * @LastEditTime: 2022-02-21 18:41:54
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \npm\jeft-vue-press\docs\.vuepress\theme\layouts\GLobalLayout.vue
@@ -30,26 +30,15 @@
 export default {
   data() {
     return {
-      urlPrefix: "http://jeft-vue-example.xuhaichao.cn/#/",
+      urlPrefix: "https://jeft-hai.github.io/jeft-vue-example/#/",
+      // urlPrefix: "http://jeft-vue-example.xuhaichao.cn/#/",
       // urlPrefix: "http://localhost:8081/#/",
     };
-  },
-  mounted() {
-    console.log("path", this.$page.path);
-    console.log("frontmatter", this.$frontmatter);
-    const $iframe = this.$refs.iframe;
-    if ($iframe) {
-      $iframe.onload = () => {
-        console.log("change", $iframe);
-      };
-    }
   },
   computed: {
     layout() {
       if (this.$page.path) {
-        console.log("pathC", this.$page);
         if (this.$frontmatter.layout) {
-          console.log("frontmatterC", this.$frontmatter);
           // 你也可以像默认的 globalLayout 一样首先检测 layout 是否存在
           return this.$frontmatter.layout;
         }
@@ -76,9 +65,9 @@ export default {
 <style scoped>
   .main {
     /* width: 100vw;
-                                                                                                                        display: flex;
-                                                                                                                        flex-direction: row;
-                                                                                                                        overflow: hidden; */
+                                                                                                                                display: flex;
+                                                                                                                                flex-direction: row;
+                                                                                                                                overflow: hidden; */
   }
   .theme-container {
     /* flex: 1; */

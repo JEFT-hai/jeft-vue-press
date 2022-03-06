@@ -16,7 +16,10 @@ git init
 git add -A
 git commit -m 'deploy'
 
+# git pull master:gh-pages
+
 # 如果发布到 https://<USERNAME>.github.io/<REPO> 这里做出对应的替换
-# git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
+git push -f https://github.com/JEFT-hai/jeft-vue-press.git master:gh-pages
+# OpenSSL SSL_read: Connection was reset, errno 10054  - git config --global http.sslVerify "false"
 
 cd -

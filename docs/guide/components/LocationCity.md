@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-02-18 16:05:33
+ * @LastEditTime: 2022-03-06 23:12:48
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \jeft-vue-press\docs\guide\components\LocationCity.md
+-->
 
 ### vue2移动端城市选择
 
@@ -38,4 +46,88 @@ import locationCity from 'jeft-vue/components/location-city'
 1. type为tag则为标签模式
 2. type为空或cell，则单独占一行
 
+### demo1 - 默认城市数据
 
+``` html js
+    <j-location-city
+      v-model="show"
+      :locationCity.sync="locationCity"
+      :city.sync="city"
+    ></j-location-city>
+    
+      <j-button :style="{ marginBottom: '15px' }" @click="show = true" round
+        >默认城市数据-{{ city }}</j-button
+      >
+```
+
+### demo2 - 自定义城市参数
+
+``` html js
+    <j-location-city
+      v-model="show1"
+      :hotCityList="[]"
+      :cityList="cityList"
+      :locationCity.sync="locationCity"
+      :location="location"
+      :city.sync="city1"
+    ></j-location-city>
+    
+      <j-button :style="{ marginBottom: '15px' }" @click="show1 = true" round
+        >自定义城市参数-{{ city1 }}-locationCity{{ locationCity }}</j-button
+      >
+```
+
+### demo3 - 自定义城市2-tag
+
+``` html js
+    <j-location-city
+      v-model="show2"
+      :hotCityList="[]"
+      :cityList="cityList2"
+      :locationCity.sync="locationCity"
+      :location="location"
+      :city.sync="city2"
+      :paddingTop="30"
+    ></j-location-city>
+    
+    <j-button :style="{ marginBottom: '15px' }" @click="show2 = true" round
+        >自定义城市2-tag-参数-{{ city2 }}</j-button
+      >
+```
+
+``` js
+
+data() {
+    return {
+      show: false,
+      city: "深圳市",
+      show1: false,
+      city1: "深圳市",
+      locationCity: "广州市",
+      cityList: [
+        {
+          code: "城市列表",
+          cityList: ["深圳市", "中山市", "东莞市", "广州市", "佛山市"],
+        },
+      ],
+
+      show2: false,
+      city2: "深圳市",
+      cityList2: [
+        {
+          code: "城市列表",
+          cityList: ["深圳市", "中山市", "东莞市", "广州市", "佛山市"],
+          type: "tag",
+        },
+      ],
+    };
+  },
+  methods: {
+    goBack() {
+      history.back();
+    },
+    async location() {
+      return "深圳市";
+    },
+  },
+```

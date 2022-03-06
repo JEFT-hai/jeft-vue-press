@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-21 11:56:14
- * @LastEditTime: 2022-02-21 11:56:14
+ * @LastEditTime: 2022-03-06 23:26:45
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \jeft-vue-press\docs\guide\LocationMap.md
@@ -37,7 +37,9 @@ import bMap from 'jeft-vue/components/location-map'
 | mapKey       | string |                | 必传-百度地图key         |
 | addressType       | string |      ‘only‘          |  only/list-only为只选一个，list为显示列表         |
 | mapId       | string |      ‘mapPanel’          | 地图ID，多个地图传入不同ID，以使ID唯一         |
+| initCenter       | Object |      {lat: '',lng: ''}          | 初始化地图中心点坐标         |
 | userDetail       | Object |      {street: '',contactName: '',phoneNumber: '' }          | 用户信息         |
+| bMap       | boolean |      true         |   是否使用百度地图，false返回高德/腾讯坐标(但是都是使用的百度地图)         |
 
 ### 事件
 
@@ -57,5 +59,78 @@ import bMap from 'jeft-vue/components/location-map'
 }
 ```
 
+### demo1 - 百度地图数据
+
+``` html
+    <j-location-map
+      v-model="show"
+      addressType="list"
+      mapKey=""
+      mapId="listMap"
+      :initCenter.sync="initCenter"
+      @address="address = $event"
+    ></j-location-map>
+    <j-button :style="{ marginBottom: '15px' }" @click="show = true" round
+        >百度地图数据</j-button
+      >
+```
 
 
+### demo2 - 腾讯/高德地图数据
+
+``` html
+    <j-location-map
+      v-model="show1"
+      :bMap="false"
+      addressType="list"
+      :initCenter.sync="initCenter1"
+      @address="address1 = $event"
+      mapKey=""
+      mapId="listMap1"
+    ></j-location-map>
+     <j-button :style="{ marginBottom: '15px' }" @click="show1 = true" round
+        >腾讯/高德地图数据</j-button
+      >
+```
+
+### demo3 - 百度地图数据-选点+客户信息
+
+``` html
+    <j-location-map
+      v-model="show2"
+      addressType="only"
+      mapKey="Gq7gTjpOaZIhkGs0l4MEOA1BkFsoATaP"
+      mapId="listMap"
+      @address="address2 = $event"
+      :initCenter.sync="initCenter"
+      :userDetail.sync="userInfo"
+    ></j-location-map>
+    <j-button :style="{ marginBottom: '15px' }" @click="show2 = true" round
+        >百度地图数据-选点+客户信息</j-button
+      >
+```
+
+``` js
+  data() {
+    return {
+      show: false,
+      show1: false,
+      show2: false,
+      address: {},
+      address1: {},
+      address2: {},
+      initCenter: {},
+      initCenter1: {},
+      userInfo: {},
+      city: "深圳市",
+    };
+  },
+  methods: {
+    goBack() {
+      history.back();
+    },
+    async location() {
+      return "深圳市";
+    },
+  },
+```

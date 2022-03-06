@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-02-21 11:56:52
+ * @LastEditTime: 2022-03-06 23:30:04
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \jeft-vue-press\docs\guide\components\Bar.md
+-->
 # vue2柱状图-移动端
 
 
@@ -56,3 +64,40 @@ import barItem from 'jeft-vue/components/bar-item'
 @bar-footer-margin-bottom: @padding-xs;
 ```
 
+### demo
+
+``` html
+    <j-bar :barMaxValue="250">
+        <j-bar-item
+          v-for="item in barList"
+          :value="item.value"
+          :title="item.title"
+          :footer="item.footer"
+          :key="item.footer"
+        ></j-bar-item>
+    </j-bar>
+```
+
+``` js
+data() {
+    return {
+      barList: [
+        {
+          value: 100,
+          title: "100",
+          footer: "1",
+        },
+        {
+          value: 200,
+          title: "200",
+          footer: "2",
+        },
+        {
+          value: 150,
+          title: "150",
+          footer: "3",
+        },
+      ],
+    };
+  }
+```

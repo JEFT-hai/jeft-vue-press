@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-02-18 14:08:53
- * @LastEditTime: 2022-02-21 16:14:04
+ * @LastEditTime: 2022-02-21 17:42:07
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \npm\jeft-vue-press\docs\.vuepress\config.js
@@ -12,7 +12,7 @@ module.exports = {
   markdown: {
     lineNumbers: true
   },
-  base: '/jeft-vuepress/',
+  base: '/jeft-vue-press/',
   locales: {
     '/': {
       lang: 'zh-CN',
@@ -23,16 +23,16 @@ module.exports = {
   themeConfig: {
     locales: {
       '/': {
-        // nav: [
-        //   {
-        //     text: '指南',
-        //     link: '/guide/components/'
-        //   },
-        //   {
-        //     text: 'github',
-        //     link: 'https://github.com'
-        //   }
-        // ],
+        nav: [
+          {
+            text: '掘金',
+            link: 'https://juejin.cn/user/3914689977544567/posts'
+          },
+          // {
+          //   text: 'github',
+          //   link: 'https://github.com'
+          // }
+        ],
         sidebar: [
           {
             title: '介绍',   // 必要的

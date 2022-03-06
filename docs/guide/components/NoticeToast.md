@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-02-21 11:59:51
+ * @LastEditTime: 2022-03-06 23:46:32
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \jeft-vue-press\docs\guide\components\NoticeToast.md
+-->
 ## notice-toast
 
 
@@ -50,5 +58,48 @@ showToast() {
     }
 ```
 
+### demo
+
+``` html
+  <j-notice-toast :show="show" :items="items"></j-notice-toast>
+  <j-notice-toast
+    :show="show"
+    type="half"
+    top="200"
+    :items="items"
+  ></j-notice-toast>
+```
 
 
+``` js
+data() {
+    return {
+      show: true,
+      items: [
+        {
+          message: "1发布了...",
+        },
+        {
+          message: "2发布了",
+        },
+        {
+          message: "3获得了...",
+        },
+      ],
+    };
+  },
+  mounted() {
+    this.$noticeToast({
+      show: true,
+      items: this.items,
+      basePosition: "right",
+      top: 60,
+    });
+  },
+  beforeDestroy() {
+    this.$noticeToast({
+      show: false,
+    });
+    this.show = false;
+  },
+```
